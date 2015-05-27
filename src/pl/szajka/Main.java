@@ -30,8 +30,7 @@ public class Main extends Application {
 		try {
 			 
 			client = new WeatherClient();
-			
-			
+						
 			//System.out.println(client.getDocument("conditions/q/Poland/Krakow.json"));
 //			condition = client.getCurrentCondition("Poland", "Krakow");
 //			
@@ -48,6 +47,7 @@ public class Main extends Application {
 			this.condition = client.getCurrentCondition(country, city);
 			this.astronomy = client.getAstronomy(country, city);
 			this.map = client.getSatelliteMap(country, city);
+			this.history = client.getHistoryData(country, city);
 
 		} catch (WuException  | ParseException e) {
 			Alert alert = new Alert(AlertType.ERROR);

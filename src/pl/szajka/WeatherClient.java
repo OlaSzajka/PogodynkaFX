@@ -59,5 +59,11 @@ public class WeatherClient {
 		WuHistory history = new WuHistory(this.getDocument(relativeUrl));
 		return history;
 	}
+	
+	public WuHistory getHistoryData(String country, String city) throws ParseException, WuException {
+		String relativeUrl = "history_20150505/"+ lang +"/q/" + country + "/" + city + ".json";
+		WuHistory history = new WuHistory(this.getDocument(relativeUrl));
+		return history;
+	}
 }
 
