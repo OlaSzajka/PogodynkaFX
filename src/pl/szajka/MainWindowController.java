@@ -176,6 +176,7 @@ public class MainWindowController {
 		this.mainApp.getWuHistory(country, city, date);
 		ControllerHistoryWindow historyDialog = new ControllerHistoryWindow(null);
 		historyDialog.setTitle(city + " pogoda z dnia: " + date);
+		historyDialog.updateTable(this.mainApp.history.dailySummary);
 		historyDialog.showAndWait();
 	}
 
