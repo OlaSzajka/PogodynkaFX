@@ -113,9 +113,12 @@ public class ControllerHistoryWindow extends Stage {
 
 	@FXML
 	private Label labelMinDewpt;
+	
+	private WuHistory historyData;
 
-	public ControllerHistoryWindow(Parent parent) {
-
+	public ControllerHistoryWindow(Parent parent, WuHistory data) {
+		this.historyData =  data;
+		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
 				"HistoryWindow.fxml"));
 		fxmlLoader.setController(this);
@@ -129,7 +132,8 @@ public class ControllerHistoryWindow extends Stage {
 		}
 	}
 
-	public void updateTable(WuDailySummary data) {
+	public void updateTable() {
+		WuDailySummary data = this.historyData.dailySummary;
 		this.labelMeanTemp.setText(data.meantempm + " C");
 		this.labelMinTemp.setText(data.mintempm + " C");
 		this.labelMaxTemp.setText(data.maxtempm + " C");
@@ -156,8 +160,11 @@ public class ControllerHistoryWindow extends Stage {
 		this.checkBoxTornado.setSelected(data.tornado);
 	}
 
-	public void updateTempChart(List<WuObservation> observations) {
+	@FXML
+	public void updateTempChart() {
+		List<WuObservation> observations = historyData.observationList;
 		XYChart.Series series = new XYChart.Series();
+		this.lineChartHistory.getData().clear();
 		series.setName("Temperatura");
 
 		DateFormat df = new SimpleDateFormat("HH:mm:ss");
@@ -167,6 +174,58 @@ public class ControllerHistoryWindow extends Stage {
 		}
 		this.lineChartHistory.getData().add(series);
 	}
+	
+	@FXML
+	public void updatePrecipChart() {
+		List<WuObservation> observations = historyData.observationList;
+		this.lineChartHistory.setTitle("Opady");
+		XYChart.Series series = new XYChart.Series();
+		series.setName("Opady");
+
+		DateFormat df = new SimpleDateFormat("HH:mm:ss");
+		for (WuObservation obs : observations) {
+			
+			series.getData().add(new XYChart.Data(df.format(obs.date), obs.precipm));
+		}
+		
+		this.lineChartHistory.getData().add(series);
+		this.lineChartHistory.getData().remove(0);
+	}
+	
+	@FXML
+	public void updateWindChart() {
+		List<WuObservation> observations = historyData.observationList;
+		this.lineChartHistory.setTitle("Prêdkoœæ wiatru");
+		XYChart.Series series = new XYChart.Series();
+		series.setName("Wiatr");
+
+		DateFormat df = new SimpleDateFormat("HH:mm:ss");
+		for (WuObservation obs : observations) {
+			
+			series.getData().add(new XYChart.Data(df.format(obs.date), obs.wspdm));
+		}
+		
+		this.lineChartHistory.getData().add(series);
+		this.lineChartHistory.getData().remove(0);
+	}
+	
+	@FXML
+	public void updatePressureChart() {
+		List<WuObservation> observations = historyData.observationList;
+		this.lineChartHistory.setTitle("Ciœnienie");
+		XYChart.Series series = new XYChart.Series();
+		series.setName("Ciœnienie");
+
+		DateFormat df = new SimpleDateFormat("HH:mm:ss");
+		for (WuObservation obs : observations) {
+			
+			series.getData().add(new XYChart.Data(df.format(obs.date), obs.pressurem));
+		}
+		
+		this.lineChartHistory.getData().add(series);
+		this.lineChartHistory.getData().remove(0);
+	}
+	
 
 	@FXML
 	public void onButtonCloseAction(ActionEvent event) {

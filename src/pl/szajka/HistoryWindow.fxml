@@ -269,14 +269,14 @@
       </LineChart>
       <HBox layoutX="39.0" layoutY="676.0" prefWidth="1031.0" spacing="20.0">
          <children>
-            <RadioButton fx:id="radioButtonTemp" mnemonicParsing="false" selected="true" text="Temperatura">
+            <RadioButton fx:id="radioButtonTemp" mnemonicParsing="false" onAction="#updateTempChart" selected="true" text="Temperatura">
                <toggleGroup>
                   <ToggleGroup fx:id="historyChart" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="radioButtonPrecip" mnemonicParsing="false" text="Opady" toggleGroup="$historyChart" />
-            <RadioButton fx:id="radioButtonWind" mnemonicParsing="false" text="Wiatr" toggleGroup="$historyChart" />
-            <RadioButton fx:id="radioButtonPressure" mnemonicParsing="false" text="Ciśnienie" toggleGroup="$historyChart" />
+            <RadioButton fx:id="radioButtonPrecip" mnemonicParsing="false" onAction="#updatePrecipChart" text="Opady" toggleGroup="$historyChart" />
+            <RadioButton fx:id="radioButtonWind" mnemonicParsing="false" onAction="#updateWindChart" text="Wiatr" toggleGroup="$historyChart" />
+            <RadioButton fx:id="radioButtonPressure" mnemonicParsing="false" onAction="#updatePressureChart" text="Ciśnienie" toggleGroup="$historyChart" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

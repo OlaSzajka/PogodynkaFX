@@ -1,5 +1,7 @@
 package pl.szajka;
 
+import java.util.Date;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -79,7 +81,7 @@ public class MainWindowController {
 	private Pane paneMap;
 	@FXML
 	private ImageView imageViewMap;
-	
+
 	// / History
 	@FXML
 	private DatePicker datePickerHistory;
@@ -169,16 +171,18 @@ public class MainWindowController {
 
 	@FXML
 	void onButtonShowHistoryAction(ActionEvent event) {
-		
+
 		String date = this.datePickerHistory.getValue().toString();
 		String country = this.comboboxCountry.getValue();
 		String city = this.textFieldCity.getText();
 		this.mainApp.getWuHistory(country, city, date);
-		ControllerHistoryWindow historyDialog = new ControllerHistoryWindow(null);
+		ControllerHistoryWindow historyDialog = new ControllerHistoryWindow(
+				null, this.mainApp.history);
 		historyDialog.setTitle(city + " pogoda z dnia: " + date);
-		historyDialog.updateTable(this.mainApp.history.dailySummary);
-		historyDialog.updateTempChart(this.mainApp.history.observationList);
+		historyDialog.updateTable();
+		historyDialog.updateTempChart();
 		historyDialog.showAndWait();
+
 	}
 
 	public void setMainApp(Main mainApp) {

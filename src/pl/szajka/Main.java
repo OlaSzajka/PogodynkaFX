@@ -30,13 +30,7 @@ public class Main extends Application {
 		try {
 			 
 			client = new WeatherClient();
-						
-			//System.out.println(client.getDocument("conditions/q/Poland/Krakow.json"));
-//			condition = client.getCurrentCondition("Poland", "Krakow");
-//			
-//			System.out.println("Aktualizajca: " + condition.observation_time);
-//			System.out.println("Aktualna temp: " + condition.temp_c + "C");
-			
+								
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

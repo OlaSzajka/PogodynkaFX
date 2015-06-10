@@ -67,8 +67,17 @@ public class WuDailySummary {
 		this.maxwspdm = Integer.parseInt((String)obj.get("maxwspdm"));
 		this.meanwdire	= (String)obj.get("meanwdire");
 		this.meanwdird = Integer.parseInt((String)obj.get("meanwdird"));
+		if(((String)obj.get("meanvism")).equals(""))
+			this.meanvism = 0.0f;
+		else
 		this.meanvism = Float.parseFloat((String)obj.get("meanvism"));
+		if(((String)obj.get("minvism")).equals(""))
+			this.minvism = 0.0f;
+		else
 		this.minvism = Float.parseFloat((String)obj.get("minvism"));
+		if(((String)obj.get("maxvism")).equals(""))
+			this.maxvism = 0.0f;
+		else
 		this.maxvism = Float.parseFloat((String)obj.get("maxvism"));
 		this.humidity = Integer.parseInt((String)obj.get("humidity"));
 		this.minhumidity = Integer.parseInt((String)obj.get("minhumidity"));

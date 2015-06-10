@@ -16,7 +16,7 @@ public class WuObservation extends WuResponse{
 	public float vism; //":"-9999.0", 
 	public int pressurem; //":"1010", 
 	public float windchillm; //":"-999", 
-	public String precipm; //":"-9999.00", 
+	public float precipm; //":"-9999.00", 
 	public String conds;//":"pogodnie",
 	public String icon; //":"clear",
 	public Boolean fog; //":"0",
@@ -39,7 +39,10 @@ public class WuObservation extends WuResponse{
 		this.vism = Float.parseFloat((String)obj.get("vism"));
 		this.pressurem = Integer.parseInt((String)obj.get("pressurem"));
 		this.windchillm = Float.parseFloat((String)obj.get("windchillm"));
-		this.precipm = (String)obj.get("precipm");
+		if(((String)obj.get("precipm")).equals("") || ((String)obj.get("precipm")).equals("-9999.00"))
+			this.precipm = 0.0f;
+		else
+		this.precipm = Float.parseFloat((String)obj.get("precipm"));
 		this.conds = (String)obj.get("conds");
 		this.icon = (String)obj.get("icon");
 		this.fog = (Integer.parseInt((String)obj.get("fog")) != 0 );
