@@ -177,6 +177,7 @@ public class MainWindowController {
 		ControllerHistoryWindow historyDialog = new ControllerHistoryWindow(null);
 		historyDialog.setTitle(city + " pogoda z dnia: " + date);
 		historyDialog.updateTable(this.mainApp.history.dailySummary);
+		historyDialog.updateTempChart(this.mainApp.history.observationList);
 		historyDialog.showAndWait();
 	}
 

@@ -258,7 +258,7 @@
             </AnchorPane>
         </content>
       </TitledPane>
-      <Button fx:id="buttonClose" layoutX="483.0" layoutY="741.0" mnemonicParsing="false" text="Zamknij" />
+      <Button fx:id="buttonClose" layoutX="483.0" layoutY="741.0" mnemonicParsing="false" onAction="#onButtonCloseAction" text="Zamknij" />
       <LineChart fx:id="lineChartHistory" layoutX="13.0" layoutY="306.0" prefHeight="376.0" prefWidth="1083.0" title="Temperatura">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
