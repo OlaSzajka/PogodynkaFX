@@ -26,10 +26,6 @@ public class ControllerHistoryWindow extends Stage{
     
     public ControllerHistoryWindow( Parent parent)
     {
-        setTitle("This is a test dialog");
-
-        //this.defaultName = defaultName;
-        //this.defaultAddress = defaultAddress;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("HistoryWindow.fxml"));
         fxmlLoader.setController(this);

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.chart.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
@@ -10,11 +12,11 @@
 
 <AnchorPane prefHeight="788.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TitledPane animated="false" layoutX="14.0" layoutY="14.0" prefHeight="315.0" prefWidth="570.0" text="Pomiary z dnia:">
+      <TitledPane animated="false" layoutX="14.0" layoutY="14.0" prefHeight="264.0" prefWidth="598.0" text="Pomiary z dnia:">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="283.0" prefWidth="596.0">
                <children>
-                  <GridPane gridLinesVisible="true" layoutX="34.0" layoutY="28.0" prefHeight="289.0" prefWidth="596.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <GridPane fx:id="labelMeanDewpt" gridLinesVisible="true" layoutX="34.0" layoutY="28.0" prefHeight="289.0" prefWidth="596.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="367.0" minWidth="10.0" prefWidth="183.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.0" minWidth="0.0" prefWidth="61.0" />
@@ -101,8 +103,20 @@
                         <Label fx:id="labelMinTemp" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <Label fx:id="labelMaxTemp" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                         <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <Label text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Label fx:id="labelMinDewpt" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label fx:id="labelMaxDewpt" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Label fx:id="labelMeanPressure" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="labelMinPressure" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Label fx:id="labelMaxPressure" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <Label fx:id="labelMeanVis" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="labelMinVis" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <Label fx:id="labelMaxVis" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <Label fx:id="labelMeanHumidity" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="labelMinHumidity" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <Label fx:id="labelMaxHumidity" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                        <Label fx:id="labelMeanPrecip" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="labelMeanSnowfall" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Label fx:id="labelMeanSnowdepth" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -115,11 +129,11 @@
             </AnchorPane>
         </content>
       </TitledPane>
-      <TitledPane animated="false" layoutX="626.0" layoutY="14.0" prefHeight="315.0" prefWidth="291.0" text="Zjawiska">
+      <TitledPane animated="false" layoutX="626.0" layoutY="14.0" prefHeight="264.0" prefWidth="291.0" text="Zjawiska">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="271.0" prefWidth="289.0">
                <children>
-                  <GridPane gridLinesVisible="true" prefHeight="289.0" prefWidth="289.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <GridPane gridLinesVisible="true" layoutX="18.6" layoutY="19.6" prefHeight="215.0" prefWidth="270.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <children>
                         <Label GridPane.columnIndex="1">
                            <font>
@@ -159,6 +173,12 @@
                               <Insets left="10.0" />
                            </padding>
                         </Label>
+                        <Label fx:id="lableFog" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="labelRain" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="labelSnow" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="labelHail" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="labelThunder" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="labelTornado" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="367.0" minWidth="10.0" prefWidth="125.0" />
@@ -185,5 +205,28 @@
         </content>
       </TitledPane>
       <Button fx:id="buttonClose" layoutX="483.0" layoutY="741.0" mnemonicParsing="false" text="Zamknij" />
+      <LineChart fx:id="lineChartHistory" layoutX="13.0" layoutY="306.0" prefHeight="376.0" prefWidth="1083.0" title="Temperatura">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis lowerBound="-10.0" minorTickCount="10" side="LEFT" upperBound="30.0" />
+        </yAxis>
+      </LineChart>
+      <HBox layoutX="39.0" layoutY="676.0" prefWidth="1031.0" spacing="20.0">
+         <children>
+            <RadioButton fx:id="radioButtonTemp" mnemonicParsing="false" selected="true" text="Temperatura">
+               <toggleGroup>
+                  <ToggleGroup fx:id="historyChart" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radioButtonPrecip" mnemonicParsing="false" text="Opady" toggleGroup="$historyChart" />
+            <RadioButton fx:id="radioButtonWind" mnemonicParsing="false" text="Wiatr" toggleGroup="$historyChart" />
+            <RadioButton fx:id="radioButtonPressure" mnemonicParsing="false" text="Ciśnienie" toggleGroup="$historyChart" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
    </children>
 </AnchorPane>

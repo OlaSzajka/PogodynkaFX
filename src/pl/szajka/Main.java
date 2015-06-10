@@ -47,8 +47,6 @@ public class Main extends Application {
 			this.condition = client.getCurrentCondition(country, city);
 			this.astronomy = client.getAstronomy(country, city);
 			this.map = client.getSatelliteMap(country, city);
-			this.history = client.getHistoryData(country, city);
-
 		} catch (WuException  | ParseException e) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("B³¹d");
@@ -58,7 +56,18 @@ public class Main extends Application {
 		}
 	}
 	
-//	public void getWuHistory(String county, String city, Date)
+	public void getWuHistory(String country, String city, String date) {
+		try {
+			this.history = client.getHistoryData(country, city, date);
+
+		} catch (WuException  | ParseException e) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("B³¹d");
+			alert.setHeaderText("Problem z pobraniem danych!");
+			alert.setContentText(e.getMessage());
+			alert.showAndWait();
+		}
+	}
 	
     private BorderPane rootLayout; 
     

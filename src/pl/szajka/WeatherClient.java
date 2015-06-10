@@ -60,8 +60,9 @@ public class WeatherClient {
 		return history;
 	}
 	
-	public WuHistory getHistoryData(String country, String city) throws ParseException, WuException {
-		String relativeUrl = "history_20150505/"+ lang +"/q/" + country + "/" + city + ".json";
+	public WuHistory getHistoryData(String country, String city, String date) throws ParseException, WuException {
+		String wuDate = date.replace("-", "");
+		String relativeUrl = "history_"+ wuDate +"/"+ lang +"/q/" + country + "/" + city + ".json";
 		WuHistory history = new WuHistory(this.getDocument(relativeUrl));
 		return history;
 	}

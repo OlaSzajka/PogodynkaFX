@@ -3,6 +3,7 @@ package pl.szajka;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -78,6 +79,10 @@ public class MainWindowController {
 	private Pane paneMap;
 	@FXML
 	private ImageView imageViewMap;
+	
+	// / History
+	@FXML
+	private DatePicker datePickerHistory;
 
 	// Reference to the main application.
 	private Main mainApp;
@@ -164,7 +169,13 @@ public class MainWindowController {
 
 	@FXML
 	void onButtonShowHistoryAction(ActionEvent event) {
+		
+		String date = this.datePickerHistory.getValue().toString();
+		String country = this.comboboxCountry.getValue();
+		String city = this.textFieldCity.getText();
+		this.mainApp.getWuHistory(country, city, date);
 		ControllerHistoryWindow historyDialog = new ControllerHistoryWindow(null);
+		historyDialog.setTitle(city + " pogoda z dnia: " + date);
 		historyDialog.showAndWait();
 	}
 
